@@ -10,19 +10,19 @@ import java.io.InputStream;
 @Getter
 public class JsonConfig {
 
-    private static final String filePath = "static/ApplicationConfiguration.json";
+    private static final String CONFIG_File_Path = "static/ApplicationConfiguration.json";
 
-    private static ConfigData configData;
+    public static ConfigData configData;
 
-    public JsonConfig() {
+    public static void loadConfig() {
         configData = readConfig();
     }
 
-    public static ConfigData readConfig() {
+    private static ConfigData readConfig() {
         try {
             ObjectMapper mapper = new ObjectMapper();
 
-            ClassPathResource resource = new ClassPathResource( filePath);
+            ClassPathResource resource = new ClassPathResource(CONFIG_File_Path);
             InputStream stream = resource.getInputStream();
 
             return mapper.readValue(stream, ConfigData.class);
