@@ -6,10 +6,11 @@ import com.pickme.payloads.UserRegisterDetails;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.UUID;
 
 public class Mapper {
+
+    private Mapper() {}
 
     public static UserEntity mapToUserEntity(UserRegisterDetails details) {
         return UserEntity.builder()
@@ -21,11 +22,6 @@ public class Mapper {
                 .phoneNumber(details.getPhoneNumber())
                 .password(details.getPassword())
                 .build();
-    }
-
-
-    private static String generateUserId() {
-        return UUID.randomUUID().toString();
     }
 
     public static UserResponseDto toUserUserDto(UserEntity savedUser) {
@@ -48,5 +44,9 @@ public class Mapper {
             fullName.append(" ").append(lastName);
         }
         return fullName.toString();
+    }
+
+    private static String generateUserId() {
+        return UUID.randomUUID().toString();
     }
 }

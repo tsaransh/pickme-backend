@@ -20,15 +20,15 @@ public class PickmeBackendApplication {
 		SpringApplication.run(PickmeBackendApplication.class, args);
 	}
 
-	@Scheduled(fixedRate = 1200000) // 20 minutes in milliseconds
-	public void loadConfigPeriodically() {
-		try {
-			log.info("Starting to load config...");
-			JsonConfig.loadConfig();
-			log.info("Config loaded successfully.");
-		} catch (RuntimeException e) {
-			throw new ConfigException("Can't able to read config", HttpStatus.BAD_REQUEST);
-		}
-	}
+//	@Scheduled(fixedRate = 1200000) // 20 minutes in milliseconds
+//	public void loadConfigPeriodically() {
+//		try {
+//			log.info("Starting to load config...");
+//			JsonConfig.loadConfig();
+//			log.info("Config loaded successfully.");
+//		} catch (RuntimeException e) {
+//			throw new ConfigException("Can't able to read config", HttpStatus.BAD_REQUEST);
+//		}
+//	}
 
 }
